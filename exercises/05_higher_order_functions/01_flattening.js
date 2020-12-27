@@ -5,3 +5,12 @@
 // let arrays = [[1, 2, 3], [4, 5], [6]];
 // // Your code here.
 // // → [1, 2, 3, 4, 5, 6]
+
+let arrays = [[1, 2, 3], [4, 5], [6]];
+
+let flattened = arrays.reduce((accumulator, currentValue) => 
+    accumulator.concat(currentValue), 
+    []
+)
+
+console.log(flattened)

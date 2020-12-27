@@ -13,3 +13,11 @@
 // // → 3
 // // → 2
 // // → 1
+
+function loop(start, testFn, updateFn, bodyFn) {
+    for (let value = start; testFn(value); value = updateFn(value)) {
+        bodyFn(value);
+    }
+}
+
+loop(3, n => n > 0, n => n - 1, console.log);
