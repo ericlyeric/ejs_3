@@ -17,3 +17,26 @@
 // // → Vec{x: -1, y: -1}
 // console.log(new Vec(3, 4).length);
 // // → 5
+
+class Vec {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y
+    }
+
+    get length () {
+        return Math.sqrt(this.x * this.x + this.y * this.y);
+    }
+
+    plus(input) {
+        return new Vec(this.x + input.x, this.y + input.y);
+    }
+
+    minus(input) {
+        return new Vec(this.x - input.x, this.y - input.y);
+    }
+}
+
+console.log(new Vec(1, 2).plus(new Vec(2, 3)));
+console.log(new Vec(1, 2).minus(new Vec(2, 3)));
+console.log(new Vec(3, 4).length);

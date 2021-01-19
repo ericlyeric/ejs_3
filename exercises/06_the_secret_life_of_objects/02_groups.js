@@ -16,16 +16,40 @@
 // Give the class a static from method that takes an iterable object as argument and creates 
 // a group that contains all the values produced by iterating over it.
 
-// class Group {
-//   // Your code here.
-// }
+class Group {
+  constructor() {
+     this.members = [];
+  };
 
-// let group = Group.from([10, 20]);
-// console.log(group.has(10));
-// // → true
-// console.log(group.has(30));
-// // → false
-// group.add(10);
-// group.delete(10);
-// console.log(group.has(10));
-// // → false
+  has(value) {
+      return this.members.includes(value);
+  }
+
+  add(value) {
+    if (!this.has(value)) {
+        this.members.push(value);
+    }
+  }
+
+  delete(value) {
+    if (this.has(value)) {
+        this.members = this.members.filter(element => element !== value);
+    }
+  }
+
+  static from(collection) {
+      let group = new Group;
+      for (let value of collection) {
+          group.add(value);
+      }
+      return group;
+  }
+}
+
+let group = Group.from([10, 20]);
+console.log(group);
+console.log(group.has(10));
+console.log(group.has(30));
+group.add(10);
+group.delete(10);
+console.log(group.has(10));
